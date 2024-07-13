@@ -5,6 +5,7 @@ import 'package:dokan/core/helper/logger.dart';
 import 'package:dokan/feature/home/controller%20/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_places_flutter/google_places_flutter.dart';
 import 'package:google_places_flutter/model/prediction.dart';
 import '../controller/location_search_controller.dart';
@@ -21,32 +22,30 @@ class LocationSearch extends StatelessWidget {
         title: const Text("Search Location"),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppValues.horizontalPadding),
+        padding:
+            const EdgeInsets.symmetric(horizontal: AppValues.horizontalPadding),
         child: Column(
-
           children: [
-            const SizedBox(height: 24,),
+            const SizedBox(
+              height: 24,
+            ),
             GooglePlaceAutoCompleteTextField(
               textEditingController: locationSearchController.searchController,
-              googleAPIKey: "",
+              googleAPIKey: locationSearchController.googleMapAPI.toString(),
               inputDecoration: const InputDecoration(
-                hintText: 'Search location..',
-                helperStyle: AppTextStyle.bodyMedium
-              ),
+                  hintText: 'Search location..',
+                  helperStyle: AppTextStyle.bodyMedium),
               debounceTime: 400,
               isLatLngRequired: true,
               getPlaceDetailWithLatLng: (Prediction prediction) {
-               homeController.longitude(prediction.lng);
-               homeController.latitude(prediction.lat);
-               homeController.location(prediction.description);
-               homeController.getWeatherData();
-               Get.toNamed(Routes.HOME);
+                homeController.longitude(prediction.lng);
+                homeController.latitude(prediction.lat);
+                homeController.location(prediction.description);
+                homeController.getWeatherData();
+                Get.toNamed(Routes.HOME);
               },
               itemClick: (Prediction prediction) {
-
-
-             // Get.toNamed(Routes.HOME);
-
+                // Get.toNamed(Routes.HOME);
               },
               itemBuilder: (context, index, Prediction prediction) {
                 return Container(
@@ -57,9 +56,10 @@ class LocationSearch extends StatelessWidget {
                       const SizedBox(
                         width: 7,
                       ),
-                      Expanded(child: Text(prediction.description ?? "",
-
-                      style: AppTextStyle.labelMedium,
+                      Expanded(
+                          child: Text(
+                        prediction.description ?? "",
+                        style: AppTextStyle.labelMedium,
                       ))
                     ],
                   ),

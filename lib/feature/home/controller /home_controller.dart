@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:dokan/core/constants/app_assets.dart';
-import 'package:dokan/core/helper/logger.dart';
 import 'package:dokan/feature/home/data/weather.dart';
 import 'package:get/get.dart' hide Response, FormData, MultipartFile;
 import '../../../config/network_service/network_service.dart';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class HomeController extends GetxController{
+ var weatherAPI = dotenv.env['WEATHER_API'];
   var location = ''.obs;
    HttpService httpService = HttpService();
   var latitude= ''.obs;
@@ -24,7 +24,7 @@ class HomeController extends GetxController{
     try {
       isLoading(true);
       final result = await httpService.request(
-          url:'/data/2.5/weather?lat=$latitude&lon=$longitude&appid=666055a3faf049182c2ff7377ff29abe', method: Method.GET, params: {},);
+          url:'/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$weatherAPI', method: Method.GET, params: {},);
 
       if (result != null) {
         if (result is Response) {

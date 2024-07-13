@@ -28,7 +28,7 @@ class LocationSearch extends StatelessWidget {
             const SizedBox(height: 24,),
             GooglePlaceAutoCompleteTextField(
               textEditingController: locationSearchController.searchController,
-              googleAPIKey: "AIzaSyC2b0BeI3xVs_jCfj7hjxqsv0CR-_VG2vw",
+              googleAPIKey: "",
               inputDecoration: const InputDecoration(
                 hintText: 'Search location..',
                 helperStyle: AppTextStyle.bodyMedium

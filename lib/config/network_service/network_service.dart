@@ -14,12 +14,13 @@ enum Method { POST, GET, PUT, DELETE, PATCH }
 class HttpService {
   Dio? _dio;
 
-  static header() => {"Content-Type": "application/json"
-  };
+  static header() =>
+      {"Content-Type": "application/json"
+      };
 
   Future<HttpService> init() async {
     _dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl, headers: header()));
-       initInterceptors();
+    initInterceptors();
     return this;
   }
 
@@ -28,8 +29,10 @@ class HttpService {
       InterceptorsWrapper(
         onRequest: (requestOptions, handler) {
           logger.i(
-              "REQUEST[${requestOptions.method}] => PATH: ${requestOptions.path}"
-              "=> REQUEST VALUES: ${requestOptions.queryParameters} => HEADERS: ${requestOptions.headers}");
+              "REQUEST[${requestOptions.method}] => PATH: ${requestOptions
+                  .path}"
+                  "=> REQUEST VALUES: ${requestOptions
+                  .queryParameters} => HEADERS: ${requestOptions.headers}");
           return handler.next(requestOptions);
         },
         onResponse: (response, handler) {
@@ -45,30 +48,16 @@ class HttpService {
     );
   }
 
-  Future<dynamic> request(
-      {required String url,
-      required Method method,
-      Map<String, dynamic>? params,
-      String? authToken}) async {
+  Future<dynamic> request({required String url,
+    required Method method,
+    Map<String, dynamic>? params,
+    String? authToken}) async {
     Response response;
 
     try {
       if (method == Method.POST) {
-        if(authToken != null){
-          response = await _dio!.post(url,
-            data: params,
-            options: Options(headers: {"Authorization": "Bearer $authToken"}),
-
-          );
-        }
         response = await _dio!.post(url,
-          data: params,
-
-
-        );
-
-        // response = await _dio!.post(url, data: params,options: Options(headers:{"Authorization": authToken}));
-
+          data: params,);
       } else if (method == Method.DELETE) {
         response = await _dio!.delete(url);
       } else if (method == Method.PATCH) {
@@ -78,7 +67,7 @@ class HttpService {
         //FormData m = FormData.fromMap(params!);
         response = await _dio!.get(url,
             queryParameters: params,
-            options: Options(headers: {"Authorization": "Bearer $authToken"}));
+            );
       }
 
       if (response.statusCode == 200) {
@@ -107,17 +96,17 @@ class HttpService {
       throw Exception("Bad response format");
     } on DioError catch (e) {
       logger.e(e);
-      if (e.type == DioErrorType.other) {
-        Get.snackbar('Opps', "There is no internet connection");
-      } else if (e.type == DioErrorType.cancel) {
+      if (e.type == DioExceptionType.unknown) {
+        Get.snackbar('Opps', "There is unknown error");
+      } else if (e.type == DioExceptionType.cancel) {
         Get.snackbar('Opps', "Request to API server was cancelled");
-      } else if (e.type == DioErrorType.connectTimeout) {
+      } else if (e.type == DioExceptionType.connectionTimeout) {
         Get.snackbar('Opps', "Connection timeout with API server");
-      } else if (e.type == DioErrorType.receiveTimeout) {
+      } else if (e.type == DioExceptionType.receiveTimeout) {
         Get.snackbar('Opps', "Receive timeout in connection with API server");
-      } else if (e.type == DioErrorType.sendTimeout) {
+      } else if (e.type == DioExceptionType.sendTimeout) {
         Get.snackbar('Opps', "Send timeout in connection with API server");
-      } else if (e.type == DioErrorType.response) {
+      } else if (e.type == DioExceptionType.badResponse) {
         logger.d(e.response);
         Get.snackbar('Opps', e.response?.data['message'],
             backgroundColor: AppColors.red300,

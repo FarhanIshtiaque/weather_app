@@ -33,22 +33,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  bottom_inset_observer:
-    dependency: transitive
-    description:
-      name: bottom_inset_observer
-      sha256: cbfb01e0e07cc4922052701786d5e607765a6f54e1844f41061abf8744519a7d
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.0"
-  bottom_sheet:
-    dependency: "direct main"
-    description:
-      name: bottom_sheet
-      sha256: efd28f52357d23e1c01eaeb45466b407f1e29318305bd6d10baf814fda18bd7e
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.4"
   cached_network_image:
     dependency: "direct main"
     description:
@@ -129,14 +113,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
-  custom_navigation_bar:
-    dependency: "direct main"
-    description:
-      name: custom_navigation_bar
-      sha256: "2e00e138a1eba71c288aadbcd728f1f8caebf659b95b793aae08a9c0d70ca941"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.8.2"
   dbus:
     dependency: transitive
     description:
@@ -149,10 +125,18 @@ packages:
     dependency: "direct main"
     description:
       name: dio
-      sha256: "7d328c4d898a61efc3cd93655a0955858e29a0aa647f0f9e02d59b3bb275e2e8"
+      sha256: e17f6b3097b8c51b72c74c9f071a605c47bcc8893839bd66732457a5ebe73714
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.6"
+    version: "5.5.0+1"
+  dio_web_adapter:
+    dependency: transitive
+    description:
+      name: dio_web_adapter
+      sha256: "36c5b2d79eb17cdae41e974b7a8284fec631651d2a6f39a8a2ff22327e90aeac"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   dotted_border:
     dependency: "direct main"
     description:
@@ -206,6 +190,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.3.2"
+  flutter_dotenv:
+    dependency: "direct main"
+    description:
+      name: flutter_dotenv
+      sha256: "9357883bdd153ab78cbf9ffa07656e336b8bbb2b5a3ca596b0b27e119f7c7d77"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.1.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -214,14 +206,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
-  flutter_profile_picture:
-    dependency: "direct main"
-    description:
-      name: flutter_profile_picture
-      sha256: "067caecef0d7162d3858eaca3c5859cbbb21b3e5704c2bc5b96b50ffe267f45d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
   flutter_screenutil:
     dependency: "direct main"
     description:
@@ -230,14 +214,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.9.3"
-  flutter_staggered_animations:
-    dependency: "direct main"
-    description:
-      name: flutter_staggered_animations
-      sha256: "81d3c816c9bb0dca9e8a5d5454610e21ffb068aedb2bde49d2f8d04f75538351"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.1"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -280,6 +256,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  google_places_flutter:
+    dependency: "direct main"
+    description:
+      name: google_places_flutter
+      sha256: "0b30d1ebb6bd4264aa5dc775870a05d3c22107a1009ac6f328ca2077ec0ee2f2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.8"
   heroicons:
     dependency: "direct main"
     description:

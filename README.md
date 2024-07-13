@@ -1,17 +1,18 @@
-# weather
 
-A new Flutter project.
+# Welcome to Weather App
 
-## Getting Started
+Its a **Flutter** project. **GetX** state management used **MVC** pattern used.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+# Instruction
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+No code generation command is needed. Just **flutter run** will run the project
+I send the **.env** file. Add it in the project folder.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# weather_app
+## Features in Project
+
+- Search Location
+- Weather Details
+
+## Demo
+https://github.com/user-attachments/assets/5d59d1b0-fe3e-41bc-950c-6b4ae5d5c3cb
